@@ -4,22 +4,45 @@ const Schema = mongoose.Schema;
 const WorkoutSchema = new Schema({
     exercises: [
         {
-            type: Schema.Types.ObjectId,
-            ref: "Exercise"
+            type: {
+                type: String,
+                trim: true,
+              },
+            
+              name: {
+                type: String,
+                trim: true,
+              },
+            
+              weight: {
+                type: Number,
+              },
+            
+              sets: {
+                type: Number,
+              },
+            
+              reps: {
+                type: Number,
+              },
+            
+              duration: {
+                type: Number,
+              },
+            
+              distance: {
+                type: Number,
+              },
         }
     ],
-    // totalDuration: {
-    //     type:Number
-    // }
-},
-{
-    timestamps:true
 });
 
 WorkoutSchema.virtual("totalDuration").get(function(){
-    let minutes = 0;
-    this.totalDuration = this.exercises.forEach(exercise => minutes = minutes + exercise.duration);
-    return this.totalDuration;
+
+
+});
+WorkoutSchema.virtual("day").get(function(){
+return new Date().setDate(new Date().getDate())
 });
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
