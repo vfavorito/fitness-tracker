@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// mongoose schema for data structure
 const WorkoutSchema = new Schema({
     exercises: [
         {
@@ -44,6 +45,7 @@ const WorkoutSchema = new Schema({
     toJSON:{ virtuals: true } 
 });
 
+// mongoose virtual that will give all "Workout" objects a totalDuration property that is the sum of all the excercises durations in that object
 WorkoutSchema.virtual("totalDuration").get(function () {
     const exerciseDurations = [];
     this.exercises.forEach(exercise => {
