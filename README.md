@@ -14,7 +14,7 @@ This app lets you keep track of your physical activities.  This is done by savin
 6. [License](#License)
 
 ### How it works!
-Upon the apps opening, the user is shown the last workout that was added to the database.  the user than can either choose to create a new workout or add exercises to an existing workout.  After the user is finished building their workout they will be directed back to the main page which will now display their new workout.  From here the user is able to visit the dashboard.  On the dashboard the user can see a collection of all their workouts displayed via pie charts and bar graphs.  
+Upon the apps opening, the user is shown the last workout that was added to the database.  The user then can either choose to create a new workout or add exercises to an existing workout.  After the user is finished building their workout they will be directed back to the main page which will now display their new workout.  From here the user is able to visit the dashboard.  On the dashboard the user can see a collection of all their workouts displayed via pie charts and bar graphs.  
 
 Create a New Workout <br/> ![home page](images/createWorkout.png) <br/><br/>Add Exercises <br/> ![add exercises](images/addExercise.png) <br/><br/>Click on Dashboard <br/> ![home page](images/lastWorkout.png) <br/><br/> View Dashboard <br/> ![dashboard](images/dashboard.PNG) <br/><br/>
 
