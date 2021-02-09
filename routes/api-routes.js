@@ -4,13 +4,23 @@ const mongoose = require("mongoose");
 const Workout = require("../models/Workout")
 
 APIrouter.get("/api/workouts", (req, res) => {
-    Workout.find().sort({ Day: -1 }).limit(1)
-        .then((lastWorkout) => {
-            res.json(lastWorkout);
+    Workout.find({})
+        .then((workouts) => {
+            res.json(workouts);
         })
         .catch(error => {
             res.json(error);
         })
+});
+
+APIrouter.get("/api/workouts/range", (req, res) => {
+    Workout.find({})
+        .then((workouts) => {
+            res.json(workouts);
+        })
+        .catch(error => {
+            res.json(error);
+        });
 });
 
 APIrouter.put("/api/workouts/:id", (req, res) => {
@@ -24,30 +34,17 @@ APIrouter.put("/api/workouts/:id", (req, res) => {
             res.json(error);
         });
 });
+
 APIrouter.post("/api/workouts", (req, res) => {
     const NewWorkout = new Workout();
-
-    console.log("this is the apirouter post", NewWorkout);
     Workout.create(NewWorkout)
         .then(dbNewWorkout => {
-            console.log("this is in the router", dbNewWorkout)
             res.json(dbNewWorkout);
-
         })
         .catch(error => {
             res.json(error);
             console.log(error);
         });
 });
-
-APIrouter.get("/api/workouts/range", (req, res) => {
-    Workout.find({})
-        .then((lastWorkout) => {
-            res.json(lastWorkout);
-        })
-        .catch(error => {
-            res.json(error);
-        })
-})
 
 module.exports = APIrouter;
