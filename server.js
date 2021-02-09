@@ -12,10 +12,15 @@ app.use(express.static("public"));
 // routes
 app.use(APIrouter);
 app.use(HTMLrouter);
-mongoose.set("useFindAndModify", false);
 // setting up the connection the database
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  });
 // starting the server
 app.listen(PORT, () => {
-    console.log(`App running on port ${PORT}!`);
-  });
+  console.log(`App running on port ${PORT}!`);
+});
